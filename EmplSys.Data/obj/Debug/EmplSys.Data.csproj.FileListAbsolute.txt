@@ -1,0 +1,14 @@
+T:\Programming\C# applications\EmployeeSystem\EmplSys.Data\bin\Debug\EmplSys.Data.dll.config
+T:\Programming\C# applications\EmployeeSystem\EmplSys.Data\bin\Debug\EmplSys.Data.dll
+T:\Programming\C# applications\EmployeeSystem\EmplSys.Data\bin\Debug\EmplSys.Data.pdb
+T:\Programming\C# applications\EmployeeSystem\EmplSys.Data\bin\Debug\EmplSys.Data.Models.dll
+T:\Programming\C# applications\EmployeeSystem\EmplSys.Data\bin\Debug\EntityFramework.dll
+T:\Programming\C# applications\EmployeeSystem\EmplSys.Data\bin\Debug\EntityFramework.SqlServer.dll
+T:\Programming\C# applications\EmployeeSystem\EmplSys.Data\bin\Debug\EmplSys.Data.Models.pdb
+T:\Programming\C# applications\EmployeeSystem\EmplSys.Data\bin\Debug\EntityFramework.xml
+T:\Programming\C# applications\EmployeeSystem\EmplSys.Data\bin\Debug\EntityFramework.SqlServer.xml
+T:\Programming\C# applications\EmployeeSystem\EmplSys.Data\obj\Debug\EmplSys.Data.csprojResolveAssemblyReference.cache
+T:\Programming\C# applications\EmployeeSystem\EmplSys.Data\obj\Debug\EmplSys.Data.Initial.resources
+T:\Programming\C# applications\EmployeeSystem\EmplSys.Data\obj\Debug\EmplSys.Data.csproj.GenerateResource.Cache
+T:\Programming\C# applications\EmployeeSystem\EmplSys.Data\obj\Debug\EmplSys.Data.dll
+T:\Programming\C# applications\EmployeeSystem\EmplSys.Data\obj\Debug\EmplSys.Data.pdb
