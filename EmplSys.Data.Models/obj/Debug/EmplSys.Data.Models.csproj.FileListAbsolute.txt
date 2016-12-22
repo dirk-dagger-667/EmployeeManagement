@@ -1,9 +1,0 @@
-T:\Programming\C# applications\EmployeeSystem\EmplSys.Data.Models\bin\Debug\EmplSys.Data.Models.dll.config
-T:\Programming\C# applications\EmployeeSystem\EmplSys.Data.Models\bin\Debug\EmplSys.Data.Models.dll
-T:\Programming\C# applications\EmployeeSystem\EmplSys.Data.Models\bin\Debug\EmplSys.Data.Models.pdb
-T:\Programming\C# applications\EmployeeSystem\EmplSys.Data.Models\bin\Debug\EntityFramework.dll
-T:\Programming\C# applications\EmployeeSystem\EmplSys.Data.Models\bin\Debug\EntityFramework.SqlServer.dll
-T:\Programming\C# applications\EmployeeSystem\EmplSys.Data.Models\bin\Debug\EntityFramework.xml
-T:\Programming\C# applications\EmployeeSystem\EmplSys.Data.Models\bin\Debug\EntityFramework.SqlServer.xml
-T:\Programming\C# applications\EmployeeSystem\EmplSys.Data.Models\obj\Debug\EmplSys.Data.Models.dll
-T:\Programming\C# applications\EmployeeSystem\EmplSys.Data.Models\obj\Debug\EmplSys.Data.Models.pdb
