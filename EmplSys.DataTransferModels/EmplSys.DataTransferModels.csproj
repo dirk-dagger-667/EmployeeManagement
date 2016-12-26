@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D9D61151-3681-44B2-A44F-CD6EB620B6D2}</ProjectGuid>
+    <ProjectGuid>{7BC3AC13-CF95-4E33-92BE-19DCD630D99B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EmplSys.Services</RootNamespace>
-    <AssemblyName>EmplSys.Services</AssemblyName>
+    <RootNamespace>EmplSys.DataTransferModels</RootNamespace>
+    <AssemblyName>EmplSys.DataTransferModels</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -40,23 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EmployeeService.cs" />
-    <Compile Include="Interfaces\IEmployeesService.cs" />
+    <Compile Include="EmployeeDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\EmplSys.Data.Models\EmplSys.Data.Models.csproj">
-      <Project>{79469DF0-9D93-4522-AF11-473B29C5B19C}</Project>
-      <Name>EmplSys.Data.Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\EmplSys.Data\EmplSys.Data.csproj">
-      <Project>{08A9D8AA-25CB-476F-8965-91E63F2D9B6A}</Project>
-      <Name>EmplSys.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\EmplSys.WebAPI\EmplSys.WebAPI.csproj">
-      <Project>{f66ce716-a982-41d1-a8ee-b289c6f478e7}</Project>
-      <Name>EmplSys.WebAPI</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

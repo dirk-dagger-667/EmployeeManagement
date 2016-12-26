@@ -6,6 +6,7 @@
     using System.Data.Entity.Infrastructure;
     using System.Linq;
     using System.Linq.Expressions;
+    using System.Threading.Tasks;
 
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
@@ -60,6 +61,11 @@
         public int SaveChanges()
         {
             return this.context.SaveChanges();
+        }
+
+        public async Task<int> SaveChangesAsync()
+        {
+            return await this.context.SaveChangesAsync();
         }
 
         private DbEntityEntry AttachIfDetached(T entity)

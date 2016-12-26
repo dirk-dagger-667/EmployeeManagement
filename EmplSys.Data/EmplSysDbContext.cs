@@ -29,9 +29,9 @@
             return base.SaveChanges();
         }
 
-        public override Task<int> SaveChangesAsync()
+        public override async Task<int> SaveChangesAsync()
         {
-            return base.SaveChangesAsync();
+            return await base.SaveChangesAsync();
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

@@ -22,5 +22,7 @@
         void Detach(T enitty);
 
         int SaveChanges();
+
+        Task<int> SaveChangesAsync();
     }
 }

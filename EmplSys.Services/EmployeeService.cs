@@ -1,14 +1,11 @@
 ﻿namespace EmplSys.Services
 {
-    using Interfaces;
-    using System;
-    using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
     using System.Threading.Tasks;
-    using Data.Models;
-    using WebAPI.Models;
+
     using Data.Interfaces;
+    using Data.Models;
+    using Interfaces;
 
     public class EmployeeService : IEmployeesService
     {
@@ -19,65 +16,54 @@
             this.employees = employees;
         }
 
-        public Employee AddNew(EmployeeDto newEmployee)
+        public async Task<Employee> AddNew(Employee newEmployee)
         {
-            var employeeDb = this.EmplDtoToEmpl(newEmployee);
+            this.employees.Add(newEmployee);
+            await this.employees.SaveChangesAsync();
 
-            this.employees.Add(employeeDb);
-            this.employees.SaveChanges();
+            newEmployee.EmployeeId = this.EmployeeByEmail(newEmployee.Email).FirstOrDefault().EmployeeId;
 
-            return employeeDb;
+            return newEmployee;
         }
 
-        public Employee Delete(int id)
+        public async Task<Employee> Delete(int id)
         {
-            var employeeDb = this.EmployeeById(id);
+            var employeeDb = this.EmployeeById(id).FirstOrDefault();
 
             this.employees.Delete(employeeDb);
-            this.employees.SaveChanges();
+            await this.employees.SaveChangesAsync();
 
             return employeeDb;
         }
 
-        public Employee Edit(EmployeeDto changedEmployee)
+        public async Task<Employee> Edit(Employee changedEmployee)
         {
-            var employeeDb = this.EmplDtoToEmpl(changedEmployee);
+            this.employees.Update(changedEmployee);
+            await this.employees.SaveChangesAsync();
 
-            this.employees.Update(employeeDb);
+            changedEmployee.EmployeeId = this.EmployeeByEmail(changedEmployee.Email).FirstOrDefault().EmployeeId;
+
+            return changedEmployee;
         }
 
-        public Employee EmplDtoToEmpl(EmployeeDto emplDto)
+        public IQueryable<Employee> EmployeeByEmail(string email)
         {
-            return new Employee()
-            {
-                EmployeeId = emplDto.EmployeeId,
-                FirstName = emplDto.FirstName,
-                SurName = emplDto.SurName,
-                LastName = emplDto.LastName,
-                Email = emplDto.Email
-            };
+            return this.employees.SearchFor(e => e.Email.Equals(email));
         }
 
-        public Employee EmployeeById(int id)
+        public IQueryable<Employee> EmployeeByFullName(string firstName, string surName, string lastName)
         {
-            throw new NotImplementedException();
+            return this.employees.SearchFor(e => e.FirstName.Equals(firstName) && e.SurName.Equals(surName) && e.LastName.Equals(lastName));
         }
 
-        public EmployeeDto EmplToEmplDto(Employee employee)
+        public IQueryable<Employee> EmployeeById(int id)
         {
-            return new EmployeeDto()
-            {
-                EmployeeId = employee.EmployeeId,
-                FirstName = employee.FirstName,
-                SurName = employee.SurName,
-                LastName = employee.LastName,
-                Email = employee.Email
-            };
+            return this.employees.SearchFor(e => e.EmployeeId == id);
         }
 
-        public IEnumerable<Employee> GetAll()
+        public IQueryable<Employee> GetAll()
         {
-            throw new NotImplementedException();
+            return this.employees.GetAll();
         }
     }
 }

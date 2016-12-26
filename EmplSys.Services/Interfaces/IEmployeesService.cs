@@ -1,23 +1,23 @@
 ﻿namespace EmplSys.Services.Interfaces
 {
     using Data.Models;
-    using System.Collections.Generic;
-    using WebAPI.Models;
+    using System.Linq;
+    using System.Threading.Tasks;
 
     public interface IEmployeesService
     {
-        Employee EmployeeById(int id);
+        IQueryable<Employee> EmployeeById(int id);
 
-        IEnumerable<Employee> GetAll();
+        IQueryable<Employee> GetAll();
 
-        Employee AddNew(EmployeeDto newEmployee);
+        IQueryable<Employee> EmployeeByFullName(string firstName, string surName, string lastName);
 
-        Employee Edit(EmployeeDto changedEmployee);
+        IQueryable<Employee> EmployeeByEmail(string email);
 
-        Employee Delete(int id);
+        Task<Employee> AddNew(Employee newEmployee);
 
-        Employee EmplDtoToEmpl(EmployeeDto emplDto);
+        Task<Employee> Edit(Employee changedEmployee);
 
-        EmployeeDto EmplToEmplDto(Employee employee);
+        Task<Employee> Delete(int id);
     }
 }
