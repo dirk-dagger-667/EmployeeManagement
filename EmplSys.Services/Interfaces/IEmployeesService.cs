@@ -19,5 +19,7 @@
         Task<Employee> Edit(Employee changedEmployee);
 
         Task<Employee> Delete(int id);
+
+        Task<Employee> Delete(string email);
     }
 }

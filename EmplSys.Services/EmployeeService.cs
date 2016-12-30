@@ -36,6 +36,16 @@
             return employeeDb;
         }
 
+        public async Task<Employee> Delete(string email)
+        {
+            var employeeDb = this.EmployeeByEmail(email).FirstOrDefault();
+
+            this.employees.Delete(employeeDb);
+            await this.employees.SaveChangesAsync();
+
+            return employeeDb;
+        }
+
         public async Task<Employee> Edit(Employee changedEmployee)
         {
             this.employees.Update(changedEmployee);

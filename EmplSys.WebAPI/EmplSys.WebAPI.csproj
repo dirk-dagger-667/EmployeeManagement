@@ -195,13 +195,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\AutoMapperConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\DatabaseConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\StructuremapMvc.cs" />
+    <Compile Include="App_Start\StructuremapWebApi.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
     <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
@@ -312,7 +313,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="AutoMapper\Profiles\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -323,6 +323,10 @@
     <ProjectReference Include="..\EmplSys.Data.Models\EmplSys.Data.Models.csproj">
       <Project>{79469DF0-9D93-4522-AF11-473B29C5B19C}</Project>
       <Name>EmplSys.Data.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EmplSys.DataTransferModels\EmplSys.DataTransferModels.csproj">
+      <Project>{7BC3AC13-CF95-4E33-92BE-19DCD630D99B}</Project>
+      <Name>EmplSys.DataTransferModels</Name>
     </ProjectReference>
     <ProjectReference Include="..\EmplSys.Data\EmplSys.Data.csproj">
       <Project>{08A9D8AA-25CB-476F-8965-91E63F2D9B6A}</Project>
