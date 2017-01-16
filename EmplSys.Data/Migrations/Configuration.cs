@@ -10,6 +10,7 @@ namespace EmplSys.Data
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(EmplSysDbContext context)

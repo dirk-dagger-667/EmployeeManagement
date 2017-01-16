@@ -9,6 +9,7 @@
     using Newtonsoft.Json.Serialization;
     using StructureMap;
     using EmplSys.WebAPI.DependencyResolution;
+    using App_Start;
 
     public static class WebApiConfig
     {
@@ -22,6 +23,10 @@
             // Web API routes
             config.MapHttpAttributeRoutes();
 
+            config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+
+            config.EnableCors();
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
@@ -30,6 +35,7 @@
 
             IContainer container = IoC.Initialize();
             GlobalConfiguration.Configuration.DependencyResolver = new StructureMapWebApiDependencyResolver(container);
+            StructuremapWebApi.Start();
         }
     }
 }

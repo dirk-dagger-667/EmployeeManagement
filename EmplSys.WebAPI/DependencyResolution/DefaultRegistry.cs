@@ -27,6 +27,11 @@ namespace EmplSys.WebAPI.DependencyResolution
     using Controllers;
     using Data.Models;
     using DataTransferModels;
+    using Areas.HelpPage.Controllers;
+    using Services.Infrastructure.AutoMapperProfiles;
+    using Data.Interfaces;
+    using Data.Repositories;
+    using Data;
 
     public class DefaultRegistry : Registry {
         #region Constructors and Destructors
@@ -38,7 +43,7 @@ namespace EmplSys.WebAPI.DependencyResolution
             //        scan.WithDefaultConventions();
             //    });
 
-            var profiles = from t in typeof(DefaultRegistry).Assembly.GetTypes()
+            var profiles = from t in typeof(EmployeeProfile).Assembly.GetTypes()
                            where typeof(Profile).IsAssignableFrom(t)
                            select (Profile)Activator.CreateInstance(t);
 
@@ -55,14 +60,22 @@ namespace EmplSys.WebAPI.DependencyResolution
             this.For<IMapper>().Use(mapper);
             this.For<IEmployeesService>().Use<EmployeeService>();
 
-            //this.RegisterControllers(mapper);
+            this.RegisterControllers(mapper);
+            this.RegisterRepositories(mapper);
         }
 
         private void RegisterControllers(IMapper mapper)
         {
-            For<EmployeesController>().Use<EmployeesController>()
+            this.For<EmployeesController>().Use<EmployeesController>()
                 .Ctor<IMapper>().Is(mapper)
                 .Ctor<IEmployeesService>().Is<EmployeeService>();
+            this.For<HelpController>().Use(ctx => new HelpController());
+        }
+
+        private void RegisterRepositories(IMapper mapper)
+        {
+            this.For<IGenericRepository<Employee>>().Use<GenericRepository<Employee>>()
+                .Ctor<IEmplSysDbContext>().Is<EmplSysDbContext>();
         }
 
         #endregion

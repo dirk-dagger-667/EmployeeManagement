@@ -18,19 +18,22 @@
     </nav>
 
     <div class="container">
-        <div ng-include="'app/employees/productListView.html'"></div>
+        <div ng-include="'app/employees/employeesListView.html'"></div>
     </div>
 
     <!-- Library Scripts -->
     <script src="scripts/angular.js"></script>
+    <script src="Scripts/angular-resource.js"></script>
 
     <!-- Application Script -->
     <script src="app/app.js"></script>
 
     <!-- Services -->
+    <script src="common/common.services.js"></script>
+    <script src="common/employeeResource.js"></script>
 
     <!-- Product Controllers -->
-    <script src="app/employees/productListCtrl.js"></script>
+    <script src="app/employees/employeesListCtrl.js"></script>
 </body>
 
 </html>

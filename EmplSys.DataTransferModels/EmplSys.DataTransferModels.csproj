@@ -44,6 +44,12 @@
     <Compile Include="EmployeeDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EmplSys.Data.Infrastructure\EmplSys.Data.Infrastructure.csproj">
+      <Project>{00D259C8-FF5A-4874-B391-8195492AC314}</Project>
+      <Name>EmplSys.Data.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

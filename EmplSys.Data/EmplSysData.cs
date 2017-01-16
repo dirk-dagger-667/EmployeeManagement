@@ -1,11 +1,12 @@
 ﻿namespace EmplSys.Data
 {
-    using Interfaces;
-    using Models;
-    using Repositories;
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
+
+    using Interfaces;
+    using Models;
+    using Repositories;
 
     public class EmplSysData : IEmplSysData
     {
@@ -23,12 +24,64 @@
             this.repositories = new Dictionary<Type, object>();
         }
 
+        public IGenericRepository<AdditionalContactInfo> AdditionalContactInfos
+        {
+            get { return this.GetRepository<AdditionalContactInfo>(); }
+        }
+
+        public IGenericRepository<CorporateHistory> CorporateHistories
+        {
+            get { return this.GetRepository<CorporateHistory>(); }
+        }
+
+        public IGenericRepository<Country> Coutries
+        {
+            get { return this.GetRepository<Country>(); }
+        }
+
         public IGenericRepository<Employee> Employees
         {
-            get
-            {
-                return this.GetRepository<Employee>();
-            }
+            get { return this.GetRepository<Employee>(); }
+        }
+
+        public IGenericRepository<Municipality> Municipalities
+        {
+            get { return this.GetRepository<Municipality>(); }
+        }
+
+        public IGenericRepository<Office> Offices
+        {
+            get { return this.GetRepository<Office>(); }
+        }
+
+        public IGenericRepository<PlaceOfResidence> PlacesOfResidence
+        {
+            get { return this.GetRepository<PlaceOfResidence>(); }
+        }
+
+        public IGenericRepository<Position> Positions
+        {
+            get { return this.GetRepository<Position>(); }
+        }
+
+        public IGenericRepository<Recommendation> Recommendations
+        {
+            get { return this.GetRepository<Recommendation>(); }
+        }
+
+        public IGenericRepository<Training> Trainings
+        {
+            get { return this.GetRepository<Training>(); }
+        }
+
+        public IGenericRepository<User> Users
+        {
+            get { return this.GetRepository<User>(); }
+        }
+
+        public IGenericRepository<Warning> Warnings
+        {
+            get { return this.GetRepository<Warning>(); }
         }
 
         public int SaveChanges()
