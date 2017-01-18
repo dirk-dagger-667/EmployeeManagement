@@ -1,4 +1,4 @@
-﻿namespace EmplSys.Data.Infrastructure
+﻿namespace EmplSys.Data.Common
 {
     public class ErrorMesseges
     {

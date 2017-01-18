@@ -2,33 +2,30 @@
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
 
     using Common;
 
-    public class Position
+    public class Departament
     {
         private ICollection<Employee> employees;
+        private ICollection<Team> teams;
 
-        public Position()
-        {
-            this.Employees = new HashSet<Employee>();
-        }
-
-        [Key]
-        public int PositionId { get; set; }
+        public int Id { get; set; }
 
         [Required]
-        [MaxLength(ValidationConstants.MaxLengthPositionName)]
+        [MaxLength(ValidationConstants.MaxLengthDepartamentName)]
         public string Name { get; set; }
-
-        [NotMapped]        
-        public string Description { get; set; }
 
         public virtual ICollection<Employee> Employees
         {
             get { return this.employees; }
             set { this.employees = value; }
+        }
+
+        public virtual ICollection<Team> Teams
+        {
+            get { return this.teams; }
+            set { this.teams = value; }
         }
     }
 }

@@ -3,7 +3,7 @@
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    using Infrastructure;
+    using Common;
 
     public class AdditionalContactInfo
     {
@@ -11,12 +11,12 @@
         public int AdditionalContactInfoId { get; set; }
 
         [Required]
-        [MaxLength(ValidationConstants.MaxLengthEmployeeAddress)]
+        [MaxLength(ValidationConstants.MaxLengthACIAddress)]
         public string Address { get; set; }
 
         [Required]
-        [MaxLength(ValidationConstants.MaxLengthPostalCode)]
-        [MinLength(ValidationConstants.MinLengthPostalCode)]
+        [MaxLength(ValidationConstants.MaxLengthACIPostalCode)]
+        [MinLength(ValidationConstants.MinLengthACIPostalCode)]
         public string PostalCode { get; set; }
 
         [ForeignKey("Employee")]

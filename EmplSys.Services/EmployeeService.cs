@@ -21,7 +21,7 @@
             this.employees.Add(newEmployee);
             await this.employees.SaveChangesAsync();
 
-            newEmployee.EmployeeId = this.EmployeeByEmail(newEmployee.Email).FirstOrDefault().EmployeeId;
+            newEmployee.Id = this.EmployeeByEmail(newEmployee.Email).FirstOrDefault().Id;
 
             return newEmployee;
         }
@@ -51,7 +51,7 @@
             this.employees.Update(changedEmployee);
             await this.employees.SaveChangesAsync();
 
-            changedEmployee.EmployeeId = this.EmployeeByEmail(changedEmployee.Email).FirstOrDefault().EmployeeId;
+            changedEmployee.Id = this.EmployeeByEmail(changedEmployee.Email).FirstOrDefault().Id;
 
             return changedEmployee;
         }
@@ -68,7 +68,7 @@
 
         public IQueryable<Employee> EmployeeById(int id)
         {
-            return this.employees.SearchFor(e => e.EmployeeId == id);
+            return this.employees.SearchFor(e => e.Id == id);
         }
 
         public IQueryable<Employee> GetAll()

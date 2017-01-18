@@ -4,7 +4,7 @@
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    using Infrastructure;
+    using Common;
 
     [Table("Municipalities")]
     public class Municipality
@@ -22,7 +22,7 @@
         public int MunicipalityId { get; set; }
 
         [Required]
-        [MaxLength(ValidationConstants.MaxLengthMunicipalityName)]
+        [MaxLength(ValidationConstants.MaxLengthACIMunicipalityName)]
         public string Name { get; set; }
 
         public int? CountryId { get; set; }

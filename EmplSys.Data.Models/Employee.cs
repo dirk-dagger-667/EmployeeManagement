@@ -5,7 +5,7 @@
     using System.ComponentModel.DataAnnotations.Schema;
 
     using Enums;
-    using Infrastructure;
+    using Common;
 
     public class Employee
     {
@@ -24,25 +24,25 @@
         public GenderTypes Gender { get; set; }
 
         [Required]
-        [MaxLength(ValidationConstants.MaxLengthFirstName)]
+        [MaxLength(ValidationConstants.MaxLengthEmployeeFirstName)]
         public string FirstName { get; set; }
 
         [Required]
-        [MaxLength(ValidationConstants.MaxLengthSurName)]
+        [MaxLength(ValidationConstants.MaxLengthEmployeeSurName)]
         public string SurName { get; set; }
 
         [Required]
-        [MaxLength(ValidationConstants.MaxLengthLastName)]
+        [MaxLength(ValidationConstants.MaxLengthEmployeeLastName)]
         public string LastName { get; set; }
 
         [Required]
-        [MinLength(ValidationConstants.MinLengthPhoneNumber)]
-        [MaxLength(ValidationConstants.MaxLengthPhoneNumber)]
+        [MinLength(ValidationConstants.MinLengthEmployeePhoneNumber)]
+        [MaxLength(ValidationConstants.MaxLengthEmployeePhoneNumber)]
         public string PhoneNumber { get; set; }
 
         [Required]
         [Index(IsUnique = true)]
-        [MaxLength(ValidationConstants.MaxLengthEmail)]
+        [MaxLength(ValidationConstants.MaxLengthEmployeeEmail)]
         public string Email { get; set; }
 
         [NotMapped]
@@ -101,6 +101,16 @@
 
         [ForeignKey("PositionId")]
         public virtual Position Position { get; set; }
+
+        public int? DepartamentId { get; set; }
+
+        [ForeignKey("DepartamentId")]
+        public virtual Departament Departament { get; set; }
+
+        public int? TeamId { get; set; }
+
+        [ForeignKey("TeamId")]
+        public virtual Team Team { get; set; }
 
         public virtual ICollection<Training> Trainings
         {

@@ -1,10 +1,10 @@
 ﻿namespace EmplSys.Data.Models
 {
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    using Infrastructure;
-    using System.Collections.Generic;
+    using Common;
 
     [Table("PlacesOfResidence")]
     public class PlaceOfResidence
@@ -20,7 +20,7 @@
         public int PlaceOfResidenceId { get; set; }
 
         [Required]
-        [MaxLength(ValidationConstants.MaxLengthPlaceOfResidence)]
+        [MaxLength(ValidationConstants.MaxLengthACIPlaceOfResidence)]
         public string Name { get; set; }
 
         public int? MunicipalityId { get; set; }

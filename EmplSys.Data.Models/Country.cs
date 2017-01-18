@@ -4,7 +4,7 @@
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    using Infrastructure;
+    using Common;
 
     [Table("Countries")]
     public class Country
@@ -22,7 +22,7 @@
         public int CountryId { get; set; }
 
         [Required]
-        [MaxLength(ValidationConstants.MaxLengthCountryName)]
+        [MaxLength(ValidationConstants.MaxLengthACICountryName)]
         public string Name { get; set; }
 
         public virtual ICollection<AdditionalContactInfo> AdditionalEmployeeInfos

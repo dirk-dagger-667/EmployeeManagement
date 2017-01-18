@@ -6,24 +6,20 @@
 
     using Common;
 
-    public class Position
+    public class Team
     {
         private ICollection<Employee> employees;
 
-        public Position()
-        {
-            this.Employees = new HashSet<Employee>();
-        }
-
-        [Key]
-        public int PositionId { get; set; }
+        public int Id { get; set; }
 
         [Required]
-        [MaxLength(ValidationConstants.MaxLengthPositionName)]
+        [MaxLength(ValidationConstants.MaxLengthTeamName)]
         public string Name { get; set; }
 
-        [NotMapped]        
-        public string Description { get; set; }
+        public int? DepartamentId { get; set; }
+
+        [ForeignKey("DepartamentId")]
+        public virtual Departament Departament { get; set; }
 
         public virtual ICollection<Employee> Employees
         {

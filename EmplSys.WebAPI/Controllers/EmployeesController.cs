@@ -8,7 +8,7 @@
 
     using AutoMapper;
     using Data.Models;
-    using DataTransferModels;
+    using DataTransferModels.Employee;
     using Services.Interfaces;
 
     [EnableCorsAttribute("http://localhost:36845", "*", "*")]
@@ -55,19 +55,6 @@
         public async Task<IHttpActionResult> Get(string email)
         {
             var employeeDb = await this.employeeService.EmployeeByEmail(email).FirstOrDefaultAsync();
-
-            if (employeeDb == null)
-            {
-                return this.NotFound();
-            }
-
-            return this.Ok(this.mapper.Map<EmployeeDto>(employeeDb));
-        }
-
-        [HttpGet]
-        public async Task<IHttpActionResult> Get(string firstName, string surName, string lastName)
-        {
-            var employeeDb = await this.employeeService.EmployeeByFullName(firstName, surName, lastName).FirstOrDefaultAsync();
 
             if (employeeDb == null)
             {

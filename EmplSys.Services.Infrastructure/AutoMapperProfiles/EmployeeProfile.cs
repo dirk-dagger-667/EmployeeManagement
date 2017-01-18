@@ -2,7 +2,7 @@
 {
     using AutoMapper;
     using Data.Models;
-    using DataTransferModels;
+    using DataTransferModels.Employee;
 
     public class EmployeeProfile : Profile
     {

@@ -26,22 +26,7 @@
         [Required]
         public DateTime TerminationDate { get; set; }
 
-        public int LeaveCount
-        {
-            get
-            {
-                return this.leaveCount;
-            }
-            set
-            {
-                if (value > 30)
-                {
-                    throw new ArgumentOutOfRangeException("The number of Leave days cannot be more than 30");
-                }
-
-                this.leaveCount = value;
-            }
-        }
+        public int LeaveCount { get; set; }
 
         public int? EmployeeId { get; set; }
 
